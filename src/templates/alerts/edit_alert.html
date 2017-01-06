@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-user">
+    <form method="post">
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" name="name" id="Name" aria-describedby="name_of_the_item" placeholder="Chair" value="{{alert.item.name}}" disabled>
+            <span id="name_of_the_item" class="help-block">What name do you think describes this item.</span>
+        </div>
+        <div class="form-group">
+            <label for="url">URL</label>
+            <input type="text" class="form-control" name="url" id="url" placeholder="https://" value="{{alert.item.url}}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="alert_limit">Alert Limit</label>
+            <input type="text" class="form-control" name="alert_limit" id="alert_limit" aria-describedby="PriceLimit" placeholder="450.00" value="{{alert.price_limit}}">
+            <span id="PriceLimit" class="help-block">When the price goes below <strong>Alert Limit</strong> we will email you.</span>
+        </div>
+        <button class="btn btn-warning">Update</button>
+    </form>
+</div>
+{% endblock %}

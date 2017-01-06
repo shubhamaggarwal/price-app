@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-user">
+    <form method="post">
+        <div class="form-group">
+            <label for="Name">Store Name</label>
+            <input type="text" class="form-control" name="name" id="Name" aria-describedby="name_of_the_store" placeholder="Flipkart">
+        </div>
+        <div class="form-group">
+            <label for="url_prefix">Store URL</label>
+            <input type="text" class="form-control" name="url_prefix" id="url_prefix" placeholder="https://flipkart.com" aria-describedby="UrlHelp">
+            <span id="UrlHelp" class="help-block">All the items in the store start with this URL.</span>
+        </div>
+        <div class="form-group">
+            <label for="tag_name">Tag Name</label>
+            <input type="text" class="form-control" name="tag_name" id="tag_name" aria-describedby="TagName" placeholder="span" value="span">
+            <span id="TagName" class="help-block">The name of the tag that encloses the price in the HTML of the page of the item. e.g. <code>span</code></span>
+        </div>
+        <div class="form-group">
+            <label for="search_query">JSON Search Query</label>
+            <input type="text" class="form-control" name="query" id="search_query" aria-describedby="Query" placeholder='{"itemprop":"our-price"}' value='{"itemprop":"our-price"}'>
+            <span id="Query" class="help-block">The search query inside the tag name that contains the price. Use double quotation marks only.</span>
+        </div>
+        {%if session['email'] in config.ADMINS%}
+            <button class="btn btn-default">Thankyou Developer!</button>
+        {%endif%}
+    </form>
+</div>
+{% endblock %}
